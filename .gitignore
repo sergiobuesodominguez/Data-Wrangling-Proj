@@ -1,0 +1,21 @@
+# Raw data is NOT committed. pairs.csv is ~384 MB and published abstracts add
+# more; both are fully reproducible from the scripts in src/ plus the manifest.
+# See docs/DATA.md for how to obtain or rebuild them.
+data/raw/*.csv
+data/raw/*.csv.gz
+data/raw/*.out
+data/raw/*.log
+data/raw/*.pid
+
+# The HTTP page cache (~260 MB of JSON). Rebuildable; never commit.
+data/cache/
+
+# Keep the provenance manifest and the committed sample.
+!data/raw/manifest.json
+
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
