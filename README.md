@@ -108,23 +108,34 @@ cleanly and leaves the rest for next time. Don't replace that with fast retries.
 
 ## Where stage 2 stands
 
-Stage 2 works end to end and the join rate has been **measured on a 200-DOI
-random sample: 75.0%** (150 `ok`, 46 `not_found`, 4 `no_abstract`, 0 `failed`),
-stable across every year from 2019 to 2026.
+**Join rate: 92.8%**, measured on a 600-DOI random sample (557 `ok`, 40
+`not_found`, 3 `no_abstract`). So roughly **186,000 of the 200,364 pairs will
+have both halves of the comparison.**
 
-**An earlier session quoted ~93% from a 30-DOI spot check. That does not
-reproduce — do not use it.** If it appears in the project pitch or the PDF,
-correct it to 75%.
+Stage 2 is batched — 20 DOIs per query, ~10,000 requests instead of 200,364,
+which is the difference between ~3 hours and ~83 hours.
 
-Practically: ~75% of 200,364 is roughly **150,000 usable pairs**, which is
-ample. But ~50,000 pairs go missing, and that loss may not be random —
-`collect_published.py` records an explicit `status` per DOI precisely so
-missingness can be characterised rather than silently dropped. Check whether
-`not_found` correlates with journal or field before treating the remainder as
-a fair sample.
+### A cautionary tale worth reading before you touch this file
 
-Next step if you want those rows back: a Crossref fallback for `not_found`
-DOIs — a separate stage 2b that disturbs nothing upstream.
+The join rate was briefly "measured" at 75% and that number was wrong. Europe
+PMC intermittently answers `HTTP 200` with `hitCount: null` and an empty
+result list — a *transient refusal of the query*, not a statement that the DOI
+is absent. The first version of this collector recorded each of those as
+`not_found`.
+
+The result was a plausible, stable, entirely fictitious finding: 75% across a
+200-DOI random sample, consistent across every year, which is exactly what a
+real coverage limit would look like. It was our bug. Retrying the same DOIs
+returns them fine.
+
+`fetch_batch_safe` now retries a null hitCount five times before splitting the
+batch, and a query that is still refused is recorded as **`failed`, never
+`not_found`**. Keep that distinction: one means "we asked and it isn't there",
+the other means "we never got a real answer". Collapsing them is how you
+manufacture a finding.
+
+`not_found` at ~7% is the genuine residual. A Crossref fallback (stage 2b)
+could recover much of it if you want those rows.
 
 ---
 
