@@ -22,8 +22,21 @@ python3 src/collect_biorxiv.py --start 2019-01 --end 2026-08 --sources biorxiv,m
 echo "exit code: $?"   # 0 = every window verified; 1 = windows still outstanding
 ```
 
-**3. Ask Sergio for the prebuilt `pairs.csv.gz`** (~85 MB). Fastest path, and
-identical output to option 2.
+**3. Download the prebuilt `pairs.csv.gz`** (138 MB compressed, 384 MB
+uncompressed). Fastest path, identical to what option 2 rebuilds:
+
+```bash
+curl -L -o pairs.csv.gz \
+  "https://pub.hyperagent.com/api/published/pbf01M34W7S9R_1468YPPSBS7B33WS/pairs.csv.gz"
+gunzip -c pairs.csv.gz > data/raw/pairs.csv
+wc -l data/raw/pairs.csv      # abstracts contain newlines, so this exceeds 200,364
+python3 -c "import csv,sys; csv.field_size_limit(10**9); \
+print(sum(1 for _ in csv.DictReader(open('data/raw/pairs.csv'))), 'rows')"
+# expected: 200364 rows
+```
+
+If that link has expired by the time you read this, ask Sergio — or just run
+option 2, which reproduces it exactly.
 
 ---
 
