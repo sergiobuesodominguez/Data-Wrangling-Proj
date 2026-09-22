@@ -137,6 +137,55 @@ manufacture a finding.
 `not_found` at ~7% is the genuine residual. A Crossref fallback (stage 2b)
 could recover much of it if you want those rows.
 
+### Run stage 2 locally — and split it between you
+
+**Do not run this from a shared or cloud IP.** Europe PMC throttles by address.
+The machine this dataset was collected on got 403-blocked, and afterwards
+crawled at ~1 DOI/second even with polite pacing — roughly 50 hours for the
+remaining 197k. From a normal home or university connection the same code runs
+far faster, because the address has no penalty against it.
+
+Solo:
+
+```bash
+python3 src/collect_published.py            # resumable; rerun until it says COMPLETE
+```
+
+Split across four people (each on their own connection):
+
+```bash
+python3 src/collect_published.py --shard 1/4   # person 1
+python3 src/collect_published.py --shard 2/4   # person 2
+python3 src/collect_published.py --shard 3/4   # person 3
+python3 src/collect_published.py --shard 4/4   # person 4
+```
+
+Each shard writes `published_abstracts.shardNofM.csv` — disjoint DOI sets,
+verified to partition exactly, no overlap and nothing dropped. Merge with:
+
+```bash
+python3 - <<'PY'
+import csv, glob
+csv.field_size_limit(10**9)
+rows, seen = [], set()
+for f in sorted(glob.glob('data/raw/published_abstracts*.csv')):
+    for r in csv.DictReader(open(f, newline='')):
+        if r['published_doi'] not in seen:
+            seen.add(r['published_doi']); rows.append(r)
+with open('data/raw/published_abstracts.csv', 'w', newline='') as fh:
+    w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+print(len(rows), 'unique DOIs merged')
+PY
+```
+
+Then join to `pairs.csv` on `published_doi` — that join is the actual
+before/after dataset the study needs.
+
+**Progress so far:** ~2,800 DOIs already collected and committed to nothing —
+they live in `data/raw/published_abstracts.csv` on the collection machine. Ask
+Sergio for that file to skip the first 2,800, or just let the resume logic
+refetch them; the script skips any DOI already present in the output.
+
 ---
 
 ## Suggested workstream split
