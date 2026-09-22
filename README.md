@@ -106,22 +106,25 @@ cleanly and leaves the rest for next time. Don't replace that with fast retries.
 
 ---
 
-## Where stage 2 stands — read this honestly
+## Where stage 2 stands
 
-Stage 2 works end to end, but **the join rate needs confirming before anyone
-builds on it.** An early 30-DOI spot check suggested ~93%; a fresh 30-DOI run
-during this build returned **22/30 = 73%** (`ok`), with the remainder
-`not_found` in Europe PMC. A 200-DOI random sample was in flight when this
-repo was written — see `docs/DATA.md` for the figure if it has been filled in.
+Stage 2 works end to end and the join rate has been **measured on a 200-DOI
+random sample: 75.0%** (150 `ok`, 46 `not_found`, 4 `no_abstract`, 0 `failed`),
+stable across every year from 2019 to 2026.
 
-Treat 73–93% as an open range, not a settled number. It matters: at 200k pairs
-the difference is tens of thousands of usable rows. `collect_published.py`
-records an explicit `status` per DOI (`ok` / `no_abstract` / `not_found` /
-`failed`) precisely so this can be measured rather than assumed, and so
-missingness can be analysed instead of silently dropped.
+**An earlier session quoted ~93% from a 30-DOI spot check. That does not
+reproduce — do not use it.** If it appears in the project pitch or the PDF,
+correct it to 75%.
 
-Likely next step if the rate is low: fall back to Crossref for `not_found`
-DOIs, which is a separate stage-2b and does not disturb anything upstream.
+Practically: ~75% of 200,364 is roughly **150,000 usable pairs**, which is
+ample. But ~50,000 pairs go missing, and that loss may not be random —
+`collect_published.py` records an explicit `status` per DOI precisely so
+missingness can be characterised rather than silently dropped. Check whether
+`not_found` correlates with journal or field before treating the remainder as
+a fair sample.
+
+Next step if you want those rows back: a Crossref fallback for `not_found`
+DOIs — a separate stage 2b that disturbs nothing upstream.
 
 ---
 
