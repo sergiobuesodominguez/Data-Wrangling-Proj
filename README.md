@@ -181,10 +181,52 @@ PY
 Then join to `pairs.csv` on `published_doi` — that join is the actual
 before/after dataset the study needs.
 
-**Progress so far:** ~2,800 DOIs already collected and committed to nothing —
-they live in `data/raw/published_abstracts.csv` on the collection machine. Ask
-Sergio for that file to skip the first 2,800, or just let the resume logic
-refetch them; the script skips any DOI already present in the output.
+### Step by step for a collaborator
+
+**1. Get the repo.** Public, so no login prompt.
+
+```bash
+git clone https://github.com/sergiobuesodominguez/Data-Wrangling-Proj.git
+cd Data-Wrangling-Proj
+```
+
+**2. Get the stage-1 dataset** (138 MB compressed, 384 MB on disk).
+
+```bash
+mkdir -p data/raw
+curl -L -o data/raw/pairs.csv.gz \
+  "https://pub.hyperagent.com/api/published/pbf01M34W7S9R_1468YPPSBS7B33WS/pairs.csv.gz"
+gunzip -c data/raw/pairs.csv.gz > data/raw/pairs.csv
+```
+
+**3. Seed the ~2,900 abstracts already collected.** Skips work you would
+otherwise redo. The script treats a DOI found in *any*
+`data/raw/published_abstracts*.csv` as done, so this seed is honoured by solo
+and `--shard` runs alike.
+
+```bash
+curl -L -o data/raw/pa.csv.gz \
+  "https://pub.hyperagent.com/api/published/pbf01M35BF29Q_CEF4GPFF0CKTHKZK/published_abstracts_partial.csv.gz"
+gunzip -c data/raw/pa.csv.gz > data/raw/published_abstracts.csv
+```
+
+**4. Verify before the long run.**
+
+```bash
+python3 -c "
+import csv; csv.field_size_limit(10**9)
+p=list(csv.DictReader(open('data/raw/pairs.csv')))
+a=list(csv.DictReader(open('data/raw/published_abstracts.csv')))
+print(len(p),'pairs |',len(a),'abstracts already done')"
+```
+
+Expected: `200364 pairs | 2881 abstracts already done`. If you see that,
+you're good.
+
+**5. Run it** — solo, or one shard each as shown above. Watch the `pace=`
+figure in the progress lines. If it climbs past ~3 s/req, that address is
+being throttled: pause an hour rather than pushing through. Rerun the same
+command any time; it skips everything already collected.
 
 ---
 

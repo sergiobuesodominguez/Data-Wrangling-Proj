@@ -61,6 +61,16 @@ One row per unique `(preprint_doi, published_doi)` pair. 200,364 rows.
 
 One row per unique `published_doi`. Join to `pairs.csv` on `published_doi`.
 
+A partial file (2,881 DOIs: 2,696 `ok`, 170 `not_found`, 15 `no_abstract`) is
+published so nobody refetches them. Drop it in as `published_abstracts.csv`
+and every run, solo or `--shard`, skips those DOIs:
+
+```bash
+curl -L -o data/raw/pa.csv.gz \
+  "https://pub.hyperagent.com/api/published/pbf01M35BF29Q_CEF4GPFF0CKTHKZK/published_abstracts_partial.csv.gz"
+gunzip -c data/raw/pa.csv.gz > data/raw/published_abstracts.csv
+```
+
 | Column | Notes |
 |---|---|
 | `published_doi` | Join key |

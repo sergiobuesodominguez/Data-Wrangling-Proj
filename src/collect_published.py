@@ -16,11 +16,17 @@ the caller splits the batch rather than recording 20 false `not_found`s.
 Usage:
     python3 src/collect_published.py                 # everything, resumable
     python3 src/collect_published.py --limit 5000    # first 5000 unfetched
+    python3 src/collect_published.py --shard 2/4     # 2nd quarter of the DOIs
+
+Resume logic: a DOI present in any data/raw/published_abstracts*.csv is
+skipped, so a seeded published_abstracts.csv or a colleague's finished shard
+file counts as done for every run, sharded or not.
 """
 from __future__ import annotations
 
 import argparse
 import csv
+import glob
 import os
 import sys
 import time
@@ -158,10 +164,14 @@ def main() -> int:
 
     csv.field_size_limit(10 ** 9)
 
+    # Skip anything already collected in ANY stage-2 output file, not just
+    # this run's own. That is what makes a seeded published_abstracts.csv
+    # (or another person's finished shard file dropped in data/raw/) save
+    # work for a --shard run instead of being refetched.
     done: set[str] = set()
-    if os.path.exists(OUT_CSV):
-        with open(OUT_CSV, newline="") as fh:
-            done = {r["published_doi"] for r in csv.DictReader(fh)}
+    for path in sorted(glob.glob(os.path.join(RAW_DIR, "published_abstracts*.csv"))):
+        with open(path, newline="") as fh:
+            done.update(r["published_doi"] for r in csv.DictReader(fh))
 
     wanted: list[str] = []
     seen: set[str] = set()
