@@ -27,7 +27,14 @@ import time
 import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import BlockedError, BudgetExhausted, FetchError, get_json  # noqa: E402
+from common import (  # noqa: E402
+    BlockedError,
+    BudgetExhausted,
+    FetchError,
+    effective_interval,
+    get_json,
+    note_throttle_signal,
+)
 from collect_biorxiv import PAIRS_CSV, RAW_DIR, log  # noqa: E402
 
 OUT_CSV = os.path.join(RAW_DIR, "published_abstracts.csv")
@@ -91,21 +98,34 @@ NULL_RETRIES = 5
 
 
 def fetch_batch_safe(dois: list[str]) -> list[dict]:
-    """Fetch a batch, retrying transient refusals before splitting.
+    """Fetch a batch, backing off on refusals before splitting.
 
-    A null hitCount is TRANSIENT, not a verdict about the DOIs. Measured: the
-    same single DOI can return hitCount=null on one call and hitCount=1 on the
-    next. An earlier version of this file recorded those as `not_found`, which
-    depressed the apparent join rate from ~94% to ~75% and very nearly became
-    a published finding about Europe PMC coverage. It was our bug, not their
-    coverage. Retry first; only then split; never record a refusal as
-    `not_found`.
+    A null hitCount is a THROTTLE SIGNAL, not a verdict about the DOIs. Two
+    separate lessons are baked in here, both learned the hard way:
+
+    1. It is not "DOI absent". An early version recorded these as `not_found`,
+       which pushed the apparent join rate from ~93% down to ~75% -- a stable,
+       plausible, completely fictitious result that nearly got written up.
+       A refusal is `failed` or retried. Never `not_found`.
+
+    2. It is not "transient, try again immediately" either. A version that
+       retried after 0.4s was 403-blocked by Europe PMC within two minutes,
+       and the block took over 30 minutes to clear. A null means slow down:
+       each one ratchets the sustained pace down via `note_throttle_signal`
+       and waits 2, 4, 8, 16, 32s before trying again.
     """
     for attempt in range(NULL_RETRIES):
         try:
             return fetch_batch(dois)
         except SilentBatchFailure:
-            time.sleep(0.4 * (attempt + 1))
+            # A null hitCount is Europe PMC saying "too fast", not "not there".
+            # Ratchet the sustained pace DOWN and wait longer each time.
+            # Retrying faster here is what earned a 30-minute 403 block.
+            new_interval = note_throttle_signal("www.ebi.ac.uk")
+            wait = 2.0 * (2 ** attempt)
+            if attempt == 0:
+                log(f"  throttled; pace now {new_interval:.2f}s/req")
+            time.sleep(wait)
 
     if len(dois) == 1:
         log(f"  single-DOI query still refused after {NULL_RETRIES} tries: {dois[0]}")
@@ -119,7 +139,22 @@ def fetch_batch_safe(dois: list[str]) -> list[dict]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0, help="0 = no limit")
+    ap.add_argument(
+        "--shard",
+        default="",
+        help="split the work across machines, e.g. --shard 2/4 for the 2nd of 4. "
+             "Each shard writes its own output file, so several people can run "
+             "in parallel from different IPs and concatenate afterwards.",
+    )
     args = ap.parse_args()
+
+    shard_i = shard_n = 0
+    global OUT_CSV
+    if args.shard:
+        shard_i, shard_n = (int(x) for x in args.shard.split("/"))
+        if not 1 <= shard_i <= shard_n:
+            ap.error("--shard must be like 2/4 with 1 <= i <= n")
+        OUT_CSV = OUT_CSV.replace(".csv", f".shard{shard_i}of{shard_n}.csv")
 
     csv.field_size_limit(10 ** 9)
 
@@ -133,8 +168,12 @@ def main() -> int:
     with open(PAIRS_CSV, newline="") as fh:
         for row in csv.DictReader(fh):
             doi = row["published_doi"]
-            if doi and doi not in seen and doi not in done:
-                seen.add(doi)
+            if not doi or doi in seen:
+                continue
+            seen.add(doi)
+            if shard_n and (len(seen) - 1) % shard_n != (shard_i - 1):
+                continue
+            if doi not in done:
                 wanted.append(doi)
 
     if args.limit:
@@ -142,6 +181,7 @@ def main() -> int:
 
     log(f"=== stage 2: {len(wanted)} DOIs to fetch ({len(done)} already done) ===")
     log(f"=== {(len(wanted) + BATCH - 1) // BATCH} batched requests at {BATCH}/request ===")
+    log(f"=== starting pace {effective_interval('www.ebi.ac.uk'):.2f}s/request ===")
 
     new_file = not os.path.exists(OUT_CSV)
     counts: dict[str, int] = {}
@@ -171,7 +211,8 @@ def main() -> int:
             if processed % 1000 < BATCH:
                 fh.flush()
                 ok = counts.get("ok", 0)
-                log(f"  {processed}/{len(wanted)}  ok={ok} ({ok/max(processed,1):.1%})  {counts}")
+                log(f"  {processed}/{len(wanted)}  ok={ok} ({ok/max(processed,1):.1%})  "
+                    f"pace={effective_interval('www.ebi.ac.uk'):.2f}s  {counts}")
 
     log(f"=== stage 2 run finished: {processed} DOIs, {counts} ===")
     total = sum(counts.values())
