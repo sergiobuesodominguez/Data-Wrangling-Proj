@@ -77,35 +77,45 @@ study is about.
 
 ---
 
-## Join rate: measured, and lower than previously claimed
+## Join rate: 92.8%
 
-| Measurement | n | `ok` rate |
-|---|---|---|
-| Original spot check (earlier session) | 30 | ~93% |
-| First 30 DOIs in file order | 30 | 73% (22/30) |
-| **Random sample, seed 7** | **200** | **75.0%** (150/200) |
+| Measurement | n | `ok` rate | Verdict |
+|---|---|---|---|
+| Original spot check (first session) | 30 | ~93% | ✅ was right |
+| Single-DOI pass, buggy | 30 | 73% | ❌ artefact |
+| Random sample, buggy code | 200 | 75.0% | ❌ artefact |
+| **Random sample, fixed code, seed 11** | **600** | **92.8%** | ✅ **use this** |
 
-**Use 75%.** The 93% figure in the older project pitch does not reproduce and
-should not be quoted anywhere. The 200-DOI random sample breaks down as
-150 `ok`, 46 `not_found`, 4 `no_abstract`, 0 `failed` — so the shortfall is
-Europe PMC not indexing the DOI at all, not abstracts that exist but are empty.
+Final: **557 `ok`, 40 `not_found`, 3 `no_abstract`, 0 `failed`** out of 600.
+About **186,000 of 200,364 pairs** should end up with both abstracts.
 
-It is stable across time, which rules out "recent papers not yet indexed":
+### How the 75% artefact happened — don't recreate it
 
-| Year | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
-|---|---|---|---|---|---|---|---|---|
-| `ok` / n | 9/13 | 18/26 | 32/38 | 23/33 | 13/19 | 16/21 | 26/32 | 13/18 |
+Europe PMC intermittently returns `HTTP 200` with `hitCount: null` and an
+empty `resultList`. That is the API *refusing the query*, not reporting that
+the DOI is absent. The same DOI returns `hitCount: 1` moments later.
 
-**What this means for the study:** ~75% of 200,364 is roughly **150,000 usable
-pairs** — still a very large sample, and more than enough. But ~50,000 pairs
-will be lost unless recovered, and *those losses are not necessarily random*.
-Check whether `not_found` correlates with journal or field before treating the
-remainder as a fair sample; that check is itself a reportable methods result.
+The original single-DOI collector saw "no results" and wrote `not_found`.
+Because the refusals are roughly random, the corruption was uniform across
+years — producing a 75% rate that looked stable, plausible, and publishable.
+Nothing about the output looked broken.
 
-The obvious recovery is a **Crossref fallback** for
-`not_found` DOIs (Crossref has abstracts for many publishers Europe PMC
-doesn't index). That would be a new `src/collect_crossref.py` consuming the
-`not_found` rows — additive, nothing upstream changes.
+It was caught only because the batched rewrite scored 94.5% on the same data,
+and the contradiction had to be explained rather than averaged away.
+
+**The rules that came out of it:**
+
+1. A refused query is **never** `not_found`. It is `failed`, or it is retried.
+2. `fetch_batch_safe` retries a null hitCount 5 times before splitting.
+3. Batch size is **20**. At 25, Europe PMC refuses *every* query the same
+   silent way — which would have written 200,364 false `not_found` rows.
+4. If the join rate moves, suspect the collector before believing the finding.
+
+### Recovering the genuine residual
+
+The real ~7% `not_found` is a coverage limit. A **Crossref fallback**
+(`src/collect_crossref.py`, stage 2b) consuming the `not_found` rows would
+recover much of it — additive, nothing upstream changes.
 
 ---
 
