@@ -32,7 +32,38 @@ USER_AGENT = (
 # CUMULATIVE VOLUME, not instantaneous rate, which no short probe can detect.
 # Hence a slower baseline AND a per-run request budget.
 MIN_INTERVAL = 1.5
-HOST_INTERVALS = {"www.ebi.ac.uk": 0.34}  # EBI tolerates more than bioRxiv
+# Per-host baseline. Europe PMC tolerates a faster cadence than bioRxiv, but
+# 0.34s was far too aggressive -- it got us 403'd within two minutes.
+HOST_INTERVALS = {"www.ebi.ac.uk": 1.0}
+
+# Adaptive slow-down. Some hosts signal "too fast" softly rather than with a
+# status code -- Europe PMC answers HTTP 200 with hitCount:null. Treating that
+# as transient and retrying FASTER earned a 403 that took 30+ minutes to clear.
+# So callers report throttle signals here and the interval ratchets up; it
+# decays slowly on sustained success. Self-tuning beats a guessed constant.
+_HOST_PENALTY: dict[str, float] = {}
+PENALTY_STEP = 0.35
+PENALTY_CAP = 6.0
+_ok_streak: dict[str, int] = {}
+
+
+def note_throttle_signal(host: str) -> float:
+    """Call when a host soft-refuses. Returns the new effective interval."""
+    _HOST_PENALTY[host] = min(PENALTY_CAP, _HOST_PENALTY.get(host, 0.0) + PENALTY_STEP)
+    _ok_streak[host] = 0
+    return HOST_INTERVALS.get(host, MIN_INTERVAL) + _HOST_PENALTY[host]
+
+
+def note_success(host: str) -> None:
+    """Call on a clean response; decays the penalty after a long good run."""
+    _ok_streak[host] = _ok_streak.get(host, 0) + 1
+    if _ok_streak[host] >= 100 and _HOST_PENALTY.get(host, 0.0) > 0:
+        _HOST_PENALTY[host] = max(0.0, _HOST_PENALTY[host] - PENALTY_STEP / 2)
+        _ok_streak[host] = 0
+
+
+def effective_interval(host: str) -> float:
+    return HOST_INTERVALS.get(host, MIN_INTERVAL) + _HOST_PENALTY.get(host, 0.0)
 MAX_RETRIES = 6
 BACKOFF_BASE = 4.0
 BACKOFF_CAP = 180.0
@@ -74,7 +105,7 @@ def _cache_path(url: str) -> str:
 
 
 def _throttle(host: str, extra: float = 0.0) -> None:
-    wait = HOST_INTERVALS.get(host, MIN_INTERVAL) + extra
+    wait = effective_interval(host) + extra
     last = _last_request_at.get(host)
     if last is not None:
         delta = time.time() - last
@@ -114,6 +145,7 @@ def get_json(url: str, *, use_cache: bool = True, label: str = "") -> dict:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 raw = resp.read()
             payload = json.loads(raw)
+            note_success(host)
             if use_cache:
                 tmp = path + ".tmp"
                 with open(tmp, "wb") as fh:
