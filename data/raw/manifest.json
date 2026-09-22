@@ -1,0 +1,1290 @@
+{
+ "biorxiv:2019-01": {
+  "api_total": 1129,
+  "checked_at": "2026-09-22T12:33:08",
+  "pages": 12,
+  "rows": 1129,
+  "status": "complete"
+ },
+ "biorxiv:2019-02": {
+  "api_total": 1181,
+  "checked_at": "2026-09-22T12:33:20",
+  "pages": 12,
+  "rows": 1181,
+  "status": "complete"
+ },
+ "biorxiv:2019-03": {
+  "api_total": 1228,
+  "checked_at": "2026-09-22T12:33:40",
+  "pages": 13,
+  "rows": 1228,
+  "status": "complete"
+ },
+ "biorxiv:2019-04": {
+  "api_total": 1353,
+  "checked_at": "2026-09-22T12:33:59",
+  "pages": 14,
+  "rows": 1353,
+  "status": "complete"
+ },
+ "biorxiv:2019-05": {
+  "api_total": 1365,
+  "checked_at": "2026-09-22T12:34:19",
+  "pages": 14,
+  "rows": 1365,
+  "status": "complete"
+ },
+ "biorxiv:2019-06": {
+  "api_total": 1307,
+  "checked_at": "2026-09-22T12:34:33",
+  "pages": 14,
+  "rows": 1307,
+  "status": "complete"
+ },
+ "biorxiv:2019-07": {
+  "api_total": 1410,
+  "checked_at": "2026-09-22T12:34:54",
+  "pages": 15,
+  "rows": 1410,
+  "status": "complete"
+ },
+ "biorxiv:2019-08": {
+  "api_total": 1336,
+  "checked_at": "2026-09-22T12:35:11",
+  "pages": 14,
+  "rows": 1336,
+  "status": "complete"
+ },
+ "biorxiv:2019-09": {
+  "api_total": 1314,
+  "checked_at": "2026-09-22T12:35:28",
+  "pages": 14,
+  "rows": 1314,
+  "status": "complete"
+ },
+ "biorxiv:2019-10": {
+  "api_total": 1517,
+  "checked_at": "2026-09-22T12:35:47",
+  "pages": 16,
+  "rows": 1517,
+  "status": "complete"
+ },
+ "biorxiv:2019-11": {
+  "api_total": 1497,
+  "checked_at": "2026-09-22T12:36:07",
+  "pages": 15,
+  "rows": 1497,
+  "status": "complete"
+ },
+ "biorxiv:2019-12": {
+  "api_total": 1501,
+  "checked_at": "2026-09-22T12:36:37",
+  "pages": 16,
+  "rows": 1501,
+  "status": "complete"
+ },
+ "biorxiv:2020-01": {
+  "api_total": 1526,
+  "checked_at": "2026-09-22T12:36:53",
+  "pages": 16,
+  "rows": 1526,
+  "status": "complete"
+ },
+ "biorxiv:2020-02": {
+  "api_total": 1604,
+  "checked_at": "2026-09-22T12:37:16",
+  "pages": 17,
+  "rows": 1604,
+  "status": "complete"
+ },
+ "biorxiv:2020-03": {
+  "api_total": 1591,
+  "checked_at": "2026-09-22T12:37:29",
+  "pages": 16,
+  "rows": 1591,
+  "status": "complete"
+ },
+ "biorxiv:2020-04": {
+  "api_total": 1683,
+  "checked_at": "2026-09-22T12:37:42",
+  "pages": 17,
+  "rows": 1683,
+  "status": "complete"
+ },
+ "biorxiv:2020-05": {
+  "api_total": 1891,
+  "checked_at": "2026-09-22T12:37:59",
+  "pages": 19,
+  "rows": 1891,
+  "status": "complete"
+ },
+ "biorxiv:2020-06": {
+  "api_total": 1883,
+  "checked_at": "2026-09-22T12:38:27",
+  "pages": 19,
+  "rows": 1883,
+  "status": "complete"
+ },
+ "biorxiv:2020-07": {
+  "api_total": 2008,
+  "checked_at": "2026-09-22T12:38:53",
+  "pages": 21,
+  "rows": 2008,
+  "status": "complete"
+ },
+ "biorxiv:2020-08": {
+  "api_total": 1867,
+  "checked_at": "2026-09-22T12:39:15",
+  "pages": 19,
+  "rows": 1867,
+  "status": "complete"
+ },
+ "biorxiv:2020-09": {
+  "api_total": 2066,
+  "checked_at": "2026-09-22T12:39:34",
+  "pages": 21,
+  "rows": 2066,
+  "status": "complete"
+ },
+ "biorxiv:2020-10": {
+  "api_total": 2122,
+  "checked_at": "2026-09-22T12:39:54",
+  "pages": 22,
+  "rows": 2122,
+  "status": "complete"
+ },
+ "biorxiv:2020-11": {
+  "api_total": 2087,
+  "checked_at": "2026-09-22T12:40:16",
+  "pages": 21,
+  "rows": 2087,
+  "status": "complete"
+ },
+ "biorxiv:2020-12": {
+  "api_total": 1924,
+  "checked_at": "2026-09-22T12:40:42",
+  "pages": 20,
+  "rows": 1924,
+  "status": "complete"
+ },
+ "biorxiv:2021-01": {
+  "api_total": 2246,
+  "checked_at": "2026-09-22T12:41:13",
+  "pages": 23,
+  "rows": 2246,
+  "status": "complete"
+ },
+ "biorxiv:2021-02": {
+  "api_total": 2217,
+  "checked_at": "2026-09-22T12:41:40",
+  "pages": 23,
+  "rows": 2217,
+  "status": "complete"
+ },
+ "biorxiv:2021-03": {
+  "api_total": 2436,
+  "checked_at": "2026-09-22T12:32:43",
+  "pages": 25,
+  "rows": 2436,
+  "status": "complete"
+ },
+ "biorxiv:2021-04": {
+  "api_total": 2031,
+  "checked_at": "2026-09-22T12:42:02",
+  "pages": 21,
+  "rows": 2031,
+  "status": "complete"
+ },
+ "biorxiv:2021-05": {
+  "api_total": 2151,
+  "checked_at": "2026-09-22T12:42:28",
+  "pages": 22,
+  "rows": 2151,
+  "status": "complete"
+ },
+ "biorxiv:2021-06": {
+  "api_total": 2315,
+  "checked_at": "2026-09-22T12:43:01",
+  "pages": 24,
+  "rows": 2315,
+  "status": "complete"
+ },
+ "biorxiv:2021-07": {
+  "api_total": 2177,
+  "checked_at": "2026-09-22T12:43:24",
+  "pages": 22,
+  "rows": 2177,
+  "status": "complete"
+ },
+ "biorxiv:2021-08": {
+  "api_total": 2108,
+  "checked_at": "2026-09-22T12:43:48",
+  "pages": 22,
+  "rows": 2108,
+  "status": "complete"
+ },
+ "biorxiv:2021-09": {
+  "api_total": 2293,
+  "checked_at": "2026-09-22T12:44:11",
+  "pages": 23,
+  "rows": 2293,
+  "status": "complete"
+ },
+ "biorxiv:2021-10": {
+  "api_total": 1756,
+  "checked_at": "2026-09-22T12:44:29",
+  "pages": 18,
+  "rows": 1756,
+  "status": "complete"
+ },
+ "biorxiv:2021-11": {
+  "api_total": 2031,
+  "checked_at": "2026-09-22T12:44:54",
+  "pages": 21,
+  "rows": 2031,
+  "status": "complete"
+ },
+ "biorxiv:2021-12": {
+  "api_total": 1846,
+  "checked_at": "2026-09-22T12:45:14",
+  "pages": 19,
+  "rows": 1846,
+  "status": "complete"
+ },
+ "biorxiv:2022-01": {
+  "api_total": 1921,
+  "checked_at": "2026-09-22T12:45:33",
+  "pages": 20,
+  "rows": 1921,
+  "status": "complete"
+ },
+ "biorxiv:2022-02": {
+  "api_total": 1916,
+  "checked_at": "2026-09-22T12:45:57",
+  "pages": 20,
+  "rows": 1916,
+  "status": "complete"
+ },
+ "biorxiv:2022-03": {
+  "api_total": 1915,
+  "checked_at": "2026-09-22T12:46:22",
+  "pages": 20,
+  "rows": 1915,
+  "status": "complete"
+ },
+ "biorxiv:2022-04": {
+  "api_total": 1628,
+  "checked_at": "2026-09-22T12:46:39",
+  "pages": 17,
+  "rows": 1628,
+  "status": "complete"
+ },
+ "biorxiv:2022-05": {
+  "api_total": 1707,
+  "checked_at": "2026-09-22T12:46:58",
+  "pages": 18,
+  "rows": 1707,
+  "status": "complete"
+ },
+ "biorxiv:2022-06": {
+  "api_total": 1764,
+  "checked_at": "2026-09-22T12:47:13",
+  "pages": 18,
+  "rows": 1764,
+  "status": "complete"
+ },
+ "biorxiv:2022-07": {
+  "api_total": 1619,
+  "checked_at": "2026-09-22T12:47:31",
+  "pages": 17,
+  "rows": 1619,
+  "status": "complete"
+ },
+ "biorxiv:2022-08": {
+  "api_total": 1753,
+  "checked_at": "2026-09-22T12:47:54",
+  "pages": 18,
+  "rows": 1753,
+  "status": "complete"
+ },
+ "biorxiv:2022-09": {
+  "api_total": 1826,
+  "checked_at": "2026-09-22T12:48:13",
+  "pages": 19,
+  "rows": 1826,
+  "status": "complete"
+ },
+ "biorxiv:2022-10": {
+  "api_total": 1611,
+  "checked_at": "2026-09-22T12:48:35",
+  "pages": 17,
+  "rows": 1611,
+  "status": "complete"
+ },
+ "biorxiv:2022-11": {
+  "api_total": 1683,
+  "checked_at": "2026-09-22T12:48:55",
+  "pages": 17,
+  "rows": 1683,
+  "status": "complete"
+ },
+ "biorxiv:2022-12": {
+  "api_total": 1514,
+  "checked_at": "2026-09-22T12:49:17",
+  "pages": 16,
+  "rows": 1514,
+  "status": "complete"
+ },
+ "biorxiv:2023-01": {
+  "api_total": 1600,
+  "checked_at": "2026-09-22T12:49:35",
+  "pages": 16,
+  "rows": 1600,
+  "status": "complete"
+ },
+ "biorxiv:2023-02": {
+  "api_total": 1587,
+  "checked_at": "2026-09-22T12:49:55",
+  "pages": 16,
+  "rows": 1587,
+  "status": "complete"
+ },
+ "biorxiv:2023-03": {
+  "api_total": 1470,
+  "checked_at": "2026-09-22T12:50:24",
+  "pages": 15,
+  "rows": 1469,
+  "status": "complete"
+ },
+ "biorxiv:2023-04": {
+  "api_total": 1268,
+  "checked_at": "2026-09-22T12:50:49",
+  "pages": 13,
+  "rows": 1268,
+  "status": "complete"
+ },
+ "biorxiv:2023-05": {
+  "api_total": 1429,
+  "checked_at": "2026-09-22T12:51:11",
+  "pages": 15,
+  "rows": 1429,
+  "status": "complete"
+ },
+ "biorxiv:2023-06": {
+  "api_total": 1489,
+  "checked_at": "2026-09-22T12:51:27",
+  "pages": 15,
+  "rows": 1489,
+  "status": "complete"
+ },
+ "biorxiv:2023-07": {
+  "api_total": 1606,
+  "checked_at": "2026-09-22T12:51:54",
+  "pages": 17,
+  "rows": 1606,
+  "status": "complete"
+ },
+ "biorxiv:2023-08": {
+  "api_total": 1476,
+  "checked_at": "2026-09-22T12:52:18",
+  "pages": 15,
+  "rows": 1476,
+  "status": "complete"
+ },
+ "biorxiv:2023-09": {
+  "api_total": 1168,
+  "checked_at": "2026-09-22T12:52:28",
+  "pages": 12,
+  "rows": 1168,
+  "status": "complete"
+ },
+ "biorxiv:2023-10": {
+  "api_total": 1473,
+  "checked_at": "2026-09-22T12:53:01",
+  "pages": 15,
+  "rows": 1473,
+  "status": "complete"
+ },
+ "biorxiv:2023-11": {
+  "api_total": 1664,
+  "checked_at": "2026-09-22T12:53:30",
+  "pages": 17,
+  "rows": 1664,
+  "status": "complete"
+ },
+ "biorxiv:2023-12": {
+  "api_total": 1336,
+  "checked_at": "2026-09-22T12:53:46",
+  "pages": 14,
+  "rows": 1336,
+  "status": "complete"
+ },
+ "biorxiv:2024-01": {
+  "api_total": 1610,
+  "checked_at": "2026-09-22T12:54:13",
+  "pages": 17,
+  "rows": 1610,
+  "status": "complete"
+ },
+ "biorxiv:2024-02": {
+  "api_total": 1515,
+  "checked_at": "2026-09-22T12:54:37",
+  "pages": 16,
+  "rows": 1515,
+  "status": "complete"
+ },
+ "biorxiv:2024-03": {
+  "api_total": 1462,
+  "checked_at": "2026-09-22T12:54:56",
+  "pages": 15,
+  "rows": 1462,
+  "status": "complete"
+ },
+ "biorxiv:2024-04": {
+  "api_total": 1636,
+  "checked_at": "2026-09-22T12:55:20",
+  "pages": 17,
+  "rows": 1636,
+  "status": "complete"
+ },
+ "biorxiv:2024-05": {
+  "api_total": 1622,
+  "checked_at": "2026-09-22T12:55:47",
+  "pages": 17,
+  "rows": 1622,
+  "status": "complete"
+ },
+ "biorxiv:2024-06": {
+  "api_total": 1475,
+  "checked_at": "2026-09-22T12:56:07",
+  "pages": 15,
+  "rows": 1475,
+  "status": "complete"
+ },
+ "biorxiv:2024-07": {
+  "api_total": 1635,
+  "checked_at": "2026-09-22T12:56:38",
+  "pages": 17,
+  "rows": 1635,
+  "status": "complete"
+ },
+ "biorxiv:2024-08": {
+  "api_total": 1518,
+  "checked_at": "2026-09-22T12:57:10",
+  "pages": 16,
+  "rows": 1518,
+  "status": "complete"
+ },
+ "biorxiv:2024-09": {
+  "api_total": 1627,
+  "checked_at": "2026-09-22T12:57:47",
+  "pages": 17,
+  "rows": 1627,
+  "status": "complete"
+ },
+ "biorxiv:2024-10": {
+  "api_total": 1836,
+  "checked_at": "2026-09-22T12:58:28",
+  "pages": 19,
+  "rows": 1836,
+  "status": "complete"
+ },
+ "biorxiv:2024-11": {
+  "api_total": 1741,
+  "checked_at": "2026-09-22T16:54:41",
+  "pages": 18,
+  "rows": 1741,
+  "status": "complete"
+ },
+ "biorxiv:2024-12": {
+  "api_total": 1306,
+  "checked_at": "2026-09-22T16:55:01",
+  "pages": 14,
+  "rows": 1306,
+  "status": "complete"
+ },
+ "biorxiv:2025-01": {
+  "api_total": 1717,
+  "checked_at": "2026-09-22T16:55:34",
+  "pages": 18,
+  "rows": 1717,
+  "status": "complete"
+ },
+ "biorxiv:2025-02": {
+  "api_total": 1629,
+  "checked_at": "2026-09-22T16:56:05",
+  "pages": 17,
+  "rows": 1629,
+  "status": "complete"
+ },
+ "biorxiv:2025-03": {
+  "api_total": 1829,
+  "checked_at": "2026-09-22T16:56:35",
+  "pages": 19,
+  "rows": 1829,
+  "status": "complete"
+ },
+ "biorxiv:2025-04": {
+  "api_total": 1887,
+  "checked_at": "2026-09-22T16:57:07",
+  "pages": 19,
+  "rows": 1887,
+  "status": "complete"
+ },
+ "biorxiv:2025-05": {
+  "api_total": 2041,
+  "checked_at": "2026-09-22T16:57:42",
+  "pages": 21,
+  "rows": 2041,
+  "status": "complete"
+ },
+ "biorxiv:2025-06": {
+  "api_total": 1792,
+  "checked_at": "2026-09-22T16:58:17",
+  "pages": 18,
+  "rows": 1792,
+  "status": "complete"
+ },
+ "biorxiv:2025-07": {
+  "api_total": 2287,
+  "checked_at": "2026-09-22T16:58:56",
+  "pages": 23,
+  "rows": 2287,
+  "status": "complete"
+ },
+ "biorxiv:2025-08": {
+  "api_total": 1795,
+  "checked_at": "2026-09-22T16:59:34",
+  "pages": 18,
+  "rows": 1795,
+  "status": "complete"
+ },
+ "biorxiv:2025-09": {
+  "api_total": 2029,
+  "checked_at": "2026-09-22T17:00:16",
+  "pages": 21,
+  "rows": 2029,
+  "status": "complete"
+ },
+ "biorxiv:2025-10": {
+  "api_total": 1838,
+  "checked_at": "2026-09-22T17:01:12",
+  "pages": 19,
+  "rows": 1838,
+  "status": "complete"
+ },
+ "biorxiv:2025-11": {
+  "api_total": 1973,
+  "checked_at": "2026-09-22T17:02:21",
+  "pages": 20,
+  "rows": 1973,
+  "status": "complete"
+ },
+ "biorxiv:2025-12": {
+  "api_total": 2145,
+  "checked_at": "2026-09-22T17:03:49",
+  "pages": 22,
+  "rows": 2145,
+  "status": "complete"
+ },
+ "biorxiv:2026-01": {
+  "api_total": 2158,
+  "checked_at": "2026-09-22T17:05:23",
+  "pages": 22,
+  "rows": 2158,
+  "status": "complete"
+ },
+ "biorxiv:2026-02": {
+  "api_total": 1941,
+  "checked_at": "2026-09-22T17:07:09",
+  "pages": 20,
+  "rows": 1941,
+  "status": "complete"
+ },
+ "biorxiv:2026-03": {
+  "api_total": 1973,
+  "checked_at": "2026-09-22T17:07:58",
+  "pages": 20,
+  "rows": 1973,
+  "status": "complete"
+ },
+ "biorxiv:2026-04": {
+  "api_total": 2146,
+  "checked_at": "2026-09-22T17:08:59",
+  "pages": 22,
+  "rows": 2146,
+  "status": "complete"
+ },
+ "biorxiv:2026-05": {
+  "api_total": 2115,
+  "checked_at": "2026-09-22T17:09:56",
+  "pages": 22,
+  "rows": 2115,
+  "status": "complete"
+ },
+ "biorxiv:2026-06": {
+  "api_total": 2134,
+  "checked_at": "2026-09-22T17:10:40",
+  "pages": 22,
+  "rows": 2134,
+  "status": "complete"
+ },
+ "biorxiv:2026-07": {
+  "api_total": 2259,
+  "checked_at": "2026-09-22T17:11:39",
+  "pages": 23,
+  "rows": 2258,
+  "status": "complete"
+ },
+ "biorxiv:2026-08": {
+  "api_total": 1403,
+  "checked_at": "2026-09-22T17:12:11",
+  "pages": 15,
+  "rows": 1403,
+  "status": "complete"
+ },
+ "medrxiv:2019-01": {
+  "api_total": 1,
+  "checked_at": "2026-09-22T17:12:12",
+  "pages": 1,
+  "rows": 1,
+  "status": "complete"
+ },
+ "medrxiv:2019-02": {
+  "api_total": 0,
+  "checked_at": "2026-09-22T17:12:14",
+  "pages": 1,
+  "rows": 0,
+  "status": "empty"
+ },
+ "medrxiv:2019-03": {
+  "api_total": 0,
+  "checked_at": "2026-09-22T17:12:15",
+  "pages": 1,
+  "rows": 0,
+  "status": "empty"
+ },
+ "medrxiv:2019-04": {
+  "api_total": 1,
+  "checked_at": "2026-09-22T17:12:17",
+  "pages": 1,
+  "rows": 1,
+  "status": "complete"
+ },
+ "medrxiv:2019-05": {
+  "api_total": 1,
+  "checked_at": "2026-09-22T17:12:18",
+  "pages": 1,
+  "rows": 1,
+  "status": "complete"
+ },
+ "medrxiv:2019-06": {
+  "api_total": 0,
+  "checked_at": "2026-09-22T17:12:20",
+  "pages": 1,
+  "rows": 0,
+  "status": "empty"
+ },
+ "medrxiv:2019-07": {
+  "api_total": 1,
+  "checked_at": "2026-09-22T17:12:21",
+  "pages": 1,
+  "rows": 1,
+  "status": "complete"
+ },
+ "medrxiv:2019-08": {
+  "api_total": 4,
+  "checked_at": "2026-09-22T17:12:23",
+  "pages": 1,
+  "rows": 4,
+  "status": "complete"
+ },
+ "medrxiv:2019-09": {
+  "api_total": 9,
+  "checked_at": "2026-09-22T17:12:24",
+  "pages": 1,
+  "rows": 9,
+  "status": "complete"
+ },
+ "medrxiv:2019-10": {
+  "api_total": 21,
+  "checked_at": "2026-09-22T17:12:26",
+  "pages": 1,
+  "rows": 21,
+  "status": "complete"
+ },
+ "medrxiv:2019-11": {
+  "api_total": 24,
+  "checked_at": "2026-09-22T17:12:28",
+  "pages": 1,
+  "rows": 24,
+  "status": "complete"
+ },
+ "medrxiv:2019-12": {
+  "api_total": 33,
+  "checked_at": "2026-09-22T17:12:29",
+  "pages": 1,
+  "rows": 33,
+  "status": "complete"
+ },
+ "medrxiv:2020-01": {
+  "api_total": 47,
+  "checked_at": "2026-09-22T17:12:30",
+  "pages": 1,
+  "rows": 47,
+  "status": "complete"
+ },
+ "medrxiv:2020-02": {
+  "api_total": 82,
+  "checked_at": "2026-09-22T17:12:33",
+  "pages": 1,
+  "rows": 82,
+  "status": "complete"
+ },
+ "medrxiv:2020-03": {
+  "api_total": 117,
+  "checked_at": "2026-09-22T17:12:35",
+  "pages": 2,
+  "rows": 117,
+  "status": "complete"
+ },
+ "medrxiv:2020-04": {
+  "api_total": 194,
+  "checked_at": "2026-09-22T17:12:39",
+  "pages": 2,
+  "rows": 194,
+  "status": "complete"
+ },
+ "medrxiv:2020-05": {
+  "api_total": 356,
+  "checked_at": "2026-09-22T17:12:44",
+  "pages": 4,
+  "rows": 356,
+  "status": "complete"
+ },
+ "medrxiv:2020-06": {
+  "api_total": 384,
+  "checked_at": "2026-09-22T17:12:50",
+  "pages": 4,
+  "rows": 384,
+  "status": "complete"
+ },
+ "medrxiv:2020-07": {
+  "api_total": 449,
+  "checked_at": "2026-09-22T17:12:57",
+  "pages": 5,
+  "rows": 449,
+  "status": "complete"
+ },
+ "medrxiv:2020-08": {
+  "api_total": 426,
+  "checked_at": "2026-09-22T17:13:05",
+  "pages": 5,
+  "rows": 426,
+  "status": "complete"
+ },
+ "medrxiv:2020-09": {
+  "api_total": 557,
+  "checked_at": "2026-09-22T17:13:16",
+  "pages": 6,
+  "rows": 557,
+  "status": "complete"
+ },
+ "medrxiv:2020-10": {
+  "api_total": 664,
+  "checked_at": "2026-09-22T17:13:26",
+  "pages": 7,
+  "rows": 664,
+  "status": "complete"
+ },
+ "medrxiv:2020-11": {
+  "api_total": 646,
+  "checked_at": "2026-09-22T17:13:36",
+  "pages": 7,
+  "rows": 646,
+  "status": "complete"
+ },
+ "medrxiv:2020-12": {
+  "api_total": 673,
+  "checked_at": "2026-09-22T17:13:47",
+  "pages": 7,
+  "rows": 673,
+  "status": "complete"
+ },
+ "medrxiv:2021-01": {
+  "api_total": 672,
+  "checked_at": "2026-09-22T17:13:57",
+  "pages": 7,
+  "rows": 672,
+  "status": "complete"
+ },
+ "medrxiv:2021-02": {
+  "api_total": 739,
+  "checked_at": "2026-09-22T17:14:09",
+  "pages": 8,
+  "rows": 739,
+  "status": "complete"
+ },
+ "medrxiv:2021-03": {
+  "api_total": 884,
+  "checked_at": "2026-09-22T12:32:50",
+  "pages": 9,
+  "rows": 884,
+  "status": "complete"
+ },
+ "medrxiv:2021-04": {
+  "api_total": 711,
+  "checked_at": "2026-09-22T17:14:21",
+  "pages": 8,
+  "rows": 711,
+  "status": "complete"
+ },
+ "medrxiv:2021-05": {
+  "api_total": 758,
+  "checked_at": "2026-09-22T17:14:35",
+  "pages": 8,
+  "rows": 758,
+  "status": "complete"
+ },
+ "medrxiv:2021-06": {
+  "api_total": 821,
+  "checked_at": "2026-09-22T17:14:47",
+  "pages": 9,
+  "rows": 821,
+  "status": "complete"
+ },
+ "medrxiv:2021-07": {
+  "api_total": 772,
+  "checked_at": "2026-09-22T17:15:02",
+  "pages": 8,
+  "rows": 772,
+  "status": "complete"
+ },
+ "medrxiv:2021-08": {
+  "api_total": 742,
+  "checked_at": "2026-09-22T17:15:13",
+  "pages": 8,
+  "rows": 742,
+  "status": "complete"
+ },
+ "medrxiv:2021-09": {
+  "api_total": 789,
+  "checked_at": "2026-09-22T17:15:25",
+  "pages": 8,
+  "rows": 789,
+  "status": "complete"
+ },
+ "medrxiv:2021-10": {
+  "api_total": 738,
+  "checked_at": "2026-09-22T17:15:39",
+  "pages": 8,
+  "rows": 738,
+  "status": "complete"
+ },
+ "medrxiv:2021-11": {
+  "api_total": 706,
+  "checked_at": "2026-09-22T17:15:50",
+  "pages": 8,
+  "rows": 706,
+  "status": "complete"
+ },
+ "medrxiv:2021-12": {
+  "api_total": 717,
+  "checked_at": "2026-09-22T17:16:03",
+  "pages": 8,
+  "rows": 717,
+  "status": "complete"
+ },
+ "medrxiv:2022-01": {
+  "api_total": 787,
+  "checked_at": "2026-09-22T17:16:15",
+  "pages": 8,
+  "rows": 787,
+  "status": "complete"
+ },
+ "medrxiv:2022-02": {
+  "api_total": 762,
+  "checked_at": "2026-09-22T17:16:28",
+  "pages": 8,
+  "rows": 762,
+  "status": "complete"
+ },
+ "medrxiv:2022-03": {
+  "api_total": 785,
+  "checked_at": "2026-09-22T17:16:41",
+  "pages": 8,
+  "rows": 785,
+  "status": "complete"
+ },
+ "medrxiv:2022-04": {
+  "api_total": 735,
+  "checked_at": "2026-09-22T17:16:52",
+  "pages": 8,
+  "rows": 735,
+  "status": "complete"
+ },
+ "medrxiv:2022-05": {
+  "api_total": 746,
+  "checked_at": "2026-09-22T17:17:05",
+  "pages": 8,
+  "rows": 746,
+  "status": "complete"
+ },
+ "medrxiv:2022-06": {
+  "api_total": 754,
+  "checked_at": "2026-09-22T17:17:16",
+  "pages": 8,
+  "rows": 754,
+  "status": "complete"
+ },
+ "medrxiv:2022-07": {
+  "api_total": 662,
+  "checked_at": "2026-09-22T17:17:29",
+  "pages": 7,
+  "rows": 662,
+  "status": "complete"
+ },
+ "medrxiv:2022-08": {
+  "api_total": 782,
+  "checked_at": "2026-09-22T17:17:41",
+  "pages": 8,
+  "rows": 782,
+  "status": "complete"
+ },
+ "medrxiv:2022-09": {
+  "api_total": 727,
+  "checked_at": "2026-09-22T17:17:53",
+  "pages": 8,
+  "rows": 727,
+  "status": "complete"
+ },
+ "medrxiv:2022-10": {
+  "api_total": 620,
+  "checked_at": "2026-09-22T17:18:03",
+  "pages": 7,
+  "rows": 620,
+  "status": "complete"
+ },
+ "medrxiv:2022-11": {
+  "api_total": 435,
+  "checked_at": "2026-09-22T17:18:12",
+  "pages": 5,
+  "rows": 435,
+  "status": "complete"
+ },
+ "medrxiv:2022-12": {
+  "api_total": 365,
+  "checked_at": "2026-09-22T17:18:18",
+  "pages": 4,
+  "rows": 365,
+  "status": "complete"
+ },
+ "medrxiv:2023-01": {
+  "api_total": 352,
+  "checked_at": "2026-09-22T17:18:25",
+  "pages": 4,
+  "rows": 352,
+  "status": "complete"
+ },
+ "medrxiv:2023-02": {
+  "api_total": 365,
+  "checked_at": "2026-09-22T17:18:30",
+  "pages": 4,
+  "rows": 365,
+  "status": "complete"
+ },
+ "medrxiv:2023-03": {
+  "api_total": 318,
+  "checked_at": "2026-09-22T17:18:36",
+  "pages": 4,
+  "rows": 318,
+  "status": "complete"
+ },
+ "medrxiv:2023-04": {
+  "api_total": 274,
+  "checked_at": "2026-09-22T17:18:41",
+  "pages": 3,
+  "rows": 274,
+  "status": "complete"
+ },
+ "medrxiv:2023-05": {
+  "api_total": 299,
+  "checked_at": "2026-09-22T17:18:46",
+  "pages": 3,
+  "rows": 299,
+  "status": "complete"
+ },
+ "medrxiv:2023-06": {
+  "api_total": 319,
+  "checked_at": "2026-09-22T17:18:51",
+  "pages": 4,
+  "rows": 319,
+  "status": "complete"
+ },
+ "medrxiv:2023-07": {
+  "api_total": 351,
+  "checked_at": "2026-09-22T17:18:57",
+  "pages": 4,
+  "rows": 351,
+  "status": "complete"
+ },
+ "medrxiv:2023-08": {
+  "api_total": 341,
+  "checked_at": "2026-09-22T17:19:03",
+  "pages": 4,
+  "rows": 341,
+  "status": "complete"
+ },
+ "medrxiv:2023-09": {
+  "api_total": 243,
+  "checked_at": "2026-09-22T17:19:08",
+  "pages": 3,
+  "rows": 243,
+  "status": "complete"
+ },
+ "medrxiv:2023-10": {
+  "api_total": 345,
+  "checked_at": "2026-09-22T17:19:41",
+  "pages": 4,
+  "rows": 345,
+  "status": "complete"
+ },
+ "medrxiv:2023-11": {
+  "api_total": 402,
+  "checked_at": "2026-09-22T17:19:48",
+  "pages": 5,
+  "rows": 402,
+  "status": "complete"
+ },
+ "medrxiv:2023-12": {
+  "api_total": 344,
+  "checked_at": "2026-09-22T17:19:54",
+  "pages": 4,
+  "rows": 344,
+  "status": "complete"
+ },
+ "medrxiv:2024-01": {
+  "api_total": 367,
+  "checked_at": "2026-09-22T17:20:00",
+  "pages": 4,
+  "rows": 367,
+  "status": "complete"
+ },
+ "medrxiv:2024-02": {
+  "api_total": 369,
+  "checked_at": "2026-09-22T17:20:06",
+  "pages": 4,
+  "rows": 369,
+  "status": "complete"
+ },
+ "medrxiv:2024-03": {
+  "api_total": 377,
+  "checked_at": "2026-09-22T17:20:13",
+  "pages": 4,
+  "rows": 377,
+  "status": "complete"
+ },
+ "medrxiv:2024-04": {
+  "api_total": 403,
+  "checked_at": "2026-09-22T17:20:20",
+  "pages": 5,
+  "rows": 403,
+  "status": "complete"
+ },
+ "medrxiv:2024-05": {
+  "api_total": 422,
+  "checked_at": "2026-09-22T17:20:28",
+  "pages": 5,
+  "rows": 422,
+  "status": "complete"
+ },
+ "medrxiv:2024-06": {
+  "api_total": 353,
+  "checked_at": "2026-09-22T17:20:34",
+  "pages": 4,
+  "rows": 353,
+  "status": "complete"
+ },
+ "medrxiv:2024-07": {
+  "api_total": 447,
+  "checked_at": "2026-09-22T17:20:42",
+  "pages": 5,
+  "rows": 447,
+  "status": "complete"
+ },
+ "medrxiv:2024-08": {
+  "api_total": 350,
+  "checked_at": "2026-09-22T17:20:48",
+  "pages": 4,
+  "rows": 350,
+  "status": "complete"
+ },
+ "medrxiv:2024-09": {
+  "api_total": 379,
+  "checked_at": "2026-09-22T17:20:53",
+  "pages": 4,
+  "rows": 379,
+  "status": "complete"
+ },
+ "medrxiv:2024-10": {
+  "api_total": 462,
+  "checked_at": "2026-09-22T17:21:01",
+  "pages": 5,
+  "rows": 462,
+  "status": "complete"
+ },
+ "medrxiv:2024-11": {
+  "api_total": 390,
+  "checked_at": "2026-09-22T17:21:07",
+  "pages": 4,
+  "rows": 390,
+  "status": "complete"
+ },
+ "medrxiv:2024-12": {
+  "api_total": 273,
+  "checked_at": "2026-09-22T17:21:12",
+  "pages": 3,
+  "rows": 273,
+  "status": "complete"
+ },
+ "medrxiv:2025-01": {
+  "api_total": 430,
+  "checked_at": "2026-09-22T17:21:19",
+  "pages": 5,
+  "rows": 430,
+  "status": "complete"
+ },
+ "medrxiv:2025-02": {
+  "api_total": 423,
+  "checked_at": "2026-09-22T17:21:27",
+  "pages": 5,
+  "rows": 423,
+  "status": "complete"
+ },
+ "medrxiv:2025-03": {
+  "api_total": 488,
+  "checked_at": "2026-09-22T17:21:34",
+  "pages": 5,
+  "rows": 488,
+  "status": "complete"
+ },
+ "medrxiv:2025-04": {
+  "api_total": 516,
+  "checked_at": "2026-09-22T17:21:43",
+  "pages": 6,
+  "rows": 516,
+  "status": "complete"
+ },
+ "medrxiv:2025-05": {
+  "api_total": 527,
+  "checked_at": "2026-09-22T17:21:52",
+  "pages": 6,
+  "rows": 527,
+  "status": "complete"
+ },
+ "medrxiv:2025-06": {
+  "api_total": 475,
+  "checked_at": "2026-09-22T17:22:00",
+  "pages": 5,
+  "rows": 475,
+  "status": "complete"
+ },
+ "medrxiv:2025-07": {
+  "api_total": 531,
+  "checked_at": "2026-09-22T17:27:09",
+  "pages": 6,
+  "rows": 531,
+  "status": "complete"
+ },
+ "medrxiv:2025-08": {
+  "api_total": 341,
+  "checked_at": "2026-09-22T17:27:15",
+  "pages": 4,
+  "rows": 341,
+  "status": "complete"
+ },
+ "medrxiv:2025-09": {
+  "api_total": 480,
+  "checked_at": "2026-09-22T17:27:22",
+  "pages": 5,
+  "rows": 480,
+  "status": "complete"
+ },
+ "medrxiv:2025-10": {
+  "api_total": 386,
+  "checked_at": "2026-09-22T17:27:28",
+  "pages": 4,
+  "rows": 386,
+  "status": "complete"
+ },
+ "medrxiv:2025-11": {
+  "api_total": 464,
+  "checked_at": "2026-09-22T17:27:35",
+  "pages": 5,
+  "rows": 464,
+  "status": "complete"
+ },
+ "medrxiv:2025-12": {
+  "api_total": 501,
+  "checked_at": "2026-09-22T17:27:44",
+  "pages": 6,
+  "rows": 501,
+  "status": "complete"
+ },
+ "medrxiv:2026-01": {
+  "api_total": 563,
+  "checked_at": "2026-09-22T17:27:54",
+  "pages": 6,
+  "rows": 563,
+  "status": "complete"
+ },
+ "medrxiv:2026-02": {
+  "api_total": 518,
+  "checked_at": "2026-09-22T17:28:04",
+  "pages": 6,
+  "rows": 518,
+  "status": "complete"
+ },
+ "medrxiv:2026-03": {
+  "api_total": 482,
+  "checked_at": "2026-09-22T17:28:13",
+  "pages": 5,
+  "rows": 482,
+  "status": "complete"
+ },
+ "medrxiv:2026-04": {
+  "api_total": 538,
+  "checked_at": "2026-09-22T17:28:22",
+  "pages": 6,
+  "rows": 538,
+  "status": "complete"
+ },
+ "medrxiv:2026-05": {
+  "api_total": 494,
+  "checked_at": "2026-09-22T17:28:30",
+  "pages": 5,
+  "rows": 494,
+  "status": "complete"
+ },
+ "medrxiv:2026-06": {
+  "api_total": 506,
+  "checked_at": "2026-09-22T17:28:40",
+  "pages": 6,
+  "rows": 506,
+  "status": "complete"
+ },
+ "medrxiv:2026-07": {
+  "api_total": 569,
+  "checked_at": "2026-09-22T17:28:48",
+  "pages": 6,
+  "rows": 569,
+  "status": "complete"
+ },
+ "medrxiv:2026-08": {
+  "api_total": 311,
+  "checked_at": "2026-09-22T17:28:55",
+  "pages": 4,
+  "rows": 311,
+  "status": "complete"
+ }
+}
