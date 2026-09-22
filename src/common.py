@@ -32,6 +32,7 @@ USER_AGENT = (
 # CUMULATIVE VOLUME, not instantaneous rate, which no short probe can detect.
 # Hence a slower baseline AND a per-run request budget.
 MIN_INTERVAL = 1.5
+HOST_INTERVALS = {"www.ebi.ac.uk": 0.34}  # EBI tolerates more than bioRxiv
 MAX_RETRIES = 6
 BACKOFF_BASE = 4.0
 BACKOFF_CAP = 180.0
@@ -43,7 +44,7 @@ BACKOFF_CAP = 180.0
 BLOCK_WAITS = (300.0, 600.0, 900.0)
 
 # Stop a run on purpose before the host stops it for us. Resumable by design.
-REQUEST_BUDGET = 700
+REQUEST_BUDGET = int(os.environ.get("REQUEST_BUDGET", "700"))
 
 _last_request_at: dict[str, float] = {}
 _requests_made = 0
@@ -73,7 +74,7 @@ def _cache_path(url: str) -> str:
 
 
 def _throttle(host: str, extra: float = 0.0) -> None:
-    wait = MIN_INTERVAL + extra
+    wait = HOST_INTERVALS.get(host, MIN_INTERVAL) + extra
     last = _last_request_at.get(host)
     if last is not None:
         delta = time.time() - last
