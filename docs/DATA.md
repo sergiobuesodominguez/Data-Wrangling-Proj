@@ -120,6 +120,11 @@ and the contradiction had to be explained rather than averaged away.
 3. Batch size is **20**. At 25, Europe PMC refuses *every* query the same
    silent way — which would have written 200,364 false `not_found` rows.
 4. If the join rate moves, suspect the collector before believing the finding.
+5. A refused response is **evicted from the disk cache**. It comes back as
+   HTTP 200, so `get_json` caches it like any success; left there, every
+   retry and every later run replays the refusal from disk. That made a
+   fresh address look permanently blocked and inflated `pace=` five steps
+   per real refusal. Found 2026-09-23; fixed in `fetch_batch`.
 
 ### Recovering the genuine residual
 

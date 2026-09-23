@@ -37,6 +37,7 @@ from common import (  # noqa: E402
     BlockedError,
     BudgetExhausted,
     FetchError,
+    _cache_path,
     effective_interval,
     get_json,
     note_throttle_signal,
@@ -77,6 +78,15 @@ def fetch_batch(dois: list[str]) -> list[dict]:
     # The silent-failure guard. An empty result set is legitimate; a null
     # hitCount alongside it means the query itself was rejected.
     if payload.get("hitCount") is None:
+        # A refusal is HTTP 200, so get_json has just written it to the disk
+        # cache. Leave it there and every retry -- and every future run --
+        # replays the refusal from disk without touching the network: five
+        # instant "failures", five pace penalties for one real refusal, and a
+        # shard that looks permanently blocked the next morning. Evict it.
+        try:
+            os.unlink(_cache_path(url))
+        except FileNotFoundError:
+            pass
         raise SilentBatchFailure(
             f"null hitCount for a batch of {len(dois)} -- query refused, not empty"
         )
