@@ -82,11 +82,36 @@ gunzip -c data/raw/pa.csv.gz > data/raw/published_abstracts.csv
 | `pmid` | When available |
 | `published_abstract` | **The "after" text.** Only meaningful when `status == ok` |
 
+`no_abstract` also covers Europe PMC records whose abstract text is 50
+characters or shorter (25 such stubs); the text is kept but the row is not
+`ok`.
+
 **Never filter this table by `published_abstract != ""` and move on.** Use
 `status`. The reason codes exist so missingness can be characterised — whether
 `not_found` correlates with journal, year, or field is itself an analysis, and
 silently dropping those rows would bias the sample in exactly the direction the
 study is about.
+
+## Schema: `data/raw/paired_abstracts.csv` (stage 3)
+
+`python3 src/join_abstracts.py` — offline, ~15 s. One row per row of
+`pairs.csv` (200,364), with all ten `pairs.csv` columns followed by the four
+non-key stage-2 columns: `status`, `source_db`, `pmid`, `published_abstract`.
+**Every pair is kept**; analyses filter on `status == "ok"` themselves, so
+that missingness can be studied rather than silently dropped.
+
+| `status` | Rows | Share |
+|---|---|---|
+| `ok` | 186,585 | 93.1% |
+| `not_found` | 12,263 | 6.1% |
+| `no_abstract` | 1,516 | 0.8% |
+| `unmatched` | 0 | — |
+
+`unmatched` means the DOI has no stage-2 row at all — stage 2 incomplete,
+not a missing paper. The script exits 1 if any exist.
+
+Sanity figures on the `ok` rows: median abstract length 1,570 chars before
+vs 1,504 after; 4,688 pairs (2.5%) have byte-identical abstracts.
 
 ---
 

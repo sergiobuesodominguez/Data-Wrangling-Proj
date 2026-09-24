@@ -53,6 +53,9 @@ python3 src/collect_biorxiv.py --start 2019-01 --end 2026-08 --sources biorxiv,m
 
 # Fetch published abstracts for the first 500 pairs:
 python3 src/collect_published.py --limit 500
+
+# Join the two halves into the before/after corpus (offline, ~15 s):
+python3 src/join_abstracts.py
 ```
 
 `data/raw/pairs.csv` is **not in this repo** — it is 384 MB. See
@@ -66,6 +69,8 @@ python3 src/collect_published.py --limit 500
 src/common.py               HTTP layer: cache, throttling, backoff, hard-failure semantics
 src/collect_biorxiv.py      Stage 1 -- preprint -> publication links + preprint abstracts
 src/collect_published.py    Stage 2 -- published abstracts via Europe PMC
+src/run_shards.sh           Stage 2 driver: rerun shards to COMPLETE, stop on 403
+src/join_abstracts.py       Stage 3 -- join both halves into paired_abstracts.csv
 src/recover_from_cache.py   Rebuild pairs.csv from the page cache, no network
 data/raw/manifest.json      Per-window provenance: status, API total, rows, pages, timestamp
 data/samples/               300 real rows, committed so the schema is inspectable
@@ -189,8 +194,9 @@ print(len(rows), 'unique DOIs merged')
 PY
 ```
 
-Then join to `pairs.csv` on `published_doi` — that join is the actual
-before/after dataset the study needs.
+Then `python3 src/join_abstracts.py` joins the merged file to `pairs.csv` on
+`published_doi` and writes `data/raw/paired_abstracts.csv` — the actual
+before/after dataset the study needs (698 MB, 182 MB gzipped, not committed).
 
 ### Step by step for a collaborator
 
