@@ -60,6 +60,9 @@ One row per unique `(preprint_doi, published_doi)` pair. 200,364 rows.
 ## Schema: `data/raw/published_abstracts.csv` (stage 2)
 
 One row per unique `published_doi`. Join to `pairs.csv` on `published_doi`.
+**Final: 200,198 rows — 186,440 `ok`, 12,245 `not_found`, 1,513
+`no_abstract`, 0 `failed`.** Joined to `pairs.csv`: 186,585 of 200,364 pairs
+(93.1%) have both abstracts.
 
 A partial file (2,881 DOIs: 2,696 `ok`, 170 `not_found`, 15 `no_abstract`) is
 published so nobody refetches them. Drop it in as `published_abstracts.csv`
@@ -87,7 +90,7 @@ study is about.
 
 ---
 
-## Join rate: 92.8%
+## Join rate: 93.1% (full run); 92.8% on the pilot sample
 
 | Measurement | n | `ok` rate | Verdict |
 |---|---|---|---|

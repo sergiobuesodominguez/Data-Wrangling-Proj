@@ -7,8 +7,9 @@ same paper's abstract twice: once as the authors wrote it, and once after peer
 review. That is a natural before/after pair, at scale, for a question everyone
 in research has an opinion about and nobody has actually measured.
 
-This repository is the **data collection base** for that study. Stage 1 is
-finished and verified; stage 2 runs and is ready to scale up.
+This repository is the **data collection base** for that study. Both stages
+are finished and verified: **186,585 of 200,364 pairs (93.1%) have both
+abstracts.**
 
 ---
 
@@ -108,9 +109,19 @@ cleanly and leaves the rest for next time. Don't replace that with fast retries.
 
 ## Where stage 2 stands
 
-**Join rate: 92.8%**, measured on a 600-DOI random sample (557 `ok`, 40
-`not_found`, 3 `no_abstract`). So roughly **186,000 of the 200,364 pairs will
-have both halves of the comparison.**
+**Complete.** All 200,198 unique published DOIs were queried (2026-09-23/24,
+four shards from one home connection, zero HTTP 403s):
+
+| Status | DOIs | Pairs |
+|---|---|---|
+| `ok` | 186,440 | **186,585 (93.1%)** |
+| `not_found` | 12,245 | 12,263 |
+| `no_abstract` | 1,513 | 1,516 |
+| `failed` | 0 | 0 |
+
+The 600-DOI pilot had predicted 92.8%; the full run landed at 93.1%. Every
+`ok` row has a non-empty abstract. The merged `published_abstracts.csv` is
+301 MB (106 MB gzipped) and, like `pairs.csv`, is not committed.
 
 Stage 2 is batched — 20 DOIs per query, ~10,000 requests instead of 200,364,
 which is the difference between ~3 hours and ~83 hours.
